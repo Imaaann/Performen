@@ -1,0 +1,19 @@
+@import "../colours.css";
+
+
+.projects-section {
+    height: calc(100vh - 152px);
+    width: 20vw;
+    background-color: var(--secondary-colour);
+}
+
+.task-section {
+    height: calc(100vh - 152px);
+    width: 80vw;
+    background-color: var(--primary-colour);
+}
+
+.main-body {
+    display: flex;
+    flex-direction: row-reverse;
+}

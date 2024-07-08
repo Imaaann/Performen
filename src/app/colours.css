@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap');
+
+:root {
+    --primary-colour: #525252;
+    --secondary-colour: #414141;
+    --complement-colour: #313131;
+    --accent-colour: #EC625F;
+    --normal-text-colour: #A4A4A4;
+    --normal-text-font: "Open Sans", sans-serif;
+}
+
+

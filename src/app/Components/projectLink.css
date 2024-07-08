@@ -1,0 +1,122 @@
+
+.link-container {
+    display: flex;
+    font-size: 15px;
+    font-weight: 300;
+    font-family: var(--normal-text-font);
+    color: var(--normal-text-colour);
+    background-color: var(--primary-colour);
+    border-radius: 20px;
+    margin-top: 5px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px;
+}
+
+.link-container span {
+    margin-left: 3px;
+}
+
+
+.select-arrow {
+    rotate: 270deg;
+}
+
+
+.project-creator {
+    display: flex;
+    background-color: var(--complement-colour);
+    color: var(--normal-text-colour);
+    align-items: center;
+    border-radius: 8px;
+    justify-content: space-between;
+    margin-top: 5px;
+    padding: 8px 5px;
+    font-family: var(--normal-text-font);
+}
+
+
+.project-creator span {
+    margin-left: 5px;
+}
+
+.project-creator div {
+    margin-top: 3px;
+}
+
+.project-pop-up {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-colour);
+    border: 1px solid var(--accent-colour);
+    color: var(--normal-text-colour);
+    font-size: 20px;
+    font-family: var(--normal-text-font);
+    border-radius: 15px;
+    align-items: center;
+    width: 50vw;
+    z-index: 2;
+
+
+    position: absolute;
+    left: 50%;
+    margin-left: -25vw;
+    top: 50%;
+    margin-top: -162.5px !important; 
+}
+
+.project-pop-up h1 {
+    font-size: 36px;
+    text-shadow: 0px 4px 4px var(--accent-colour);
+}
+
+.project-pop-up input {
+   height: 30px;
+   width: 40%;
+   background-color: var(--secondary-colour);
+   border: none;
+   border-radius: 8px;
+   color: var(--normal-text-colour);
+   margin-bottom: 5px;
+}
+
+.project-pop-up textarea {
+    width: 60%;
+    height: 80px;
+    background-color: var(--secondary-colour);
+    border: none;
+    border-radius: 8px;
+    color: var(--normal-text-colour);
+    margin-bottom: 5px;
+ }
+
+ .project-pop-up label {
+    text-shadow: 0px 4px 4px var(--normal-text-colour);
+ }
+
+ .project-pop-up span {
+    background-color: var(--accent-colour);
+    font-size: 22px;
+    width: 70px;
+    text-align: center;
+    padding: 4px;
+    border-radius: 50px;
+    margin-bottom: 5px;
+    user-select: none;
+ }
+
+ .project-pop-up span:hover {
+    background-color: color-mix(in srgb, var(--accent-colour) 100%, black 25%);
+ }
+
+ .blackout {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    left: 0;
+    top: 0;
+    margin-top: 0px !important;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+}
+
