@@ -14,7 +14,7 @@ const UserContext = ({children}) => {
     userName: "",
     UID: "",
     profilePicture: "",
-    ProjectList: []
+    projectList: []
   }
 
   const [User,setUser] = useState(EmptyUser);

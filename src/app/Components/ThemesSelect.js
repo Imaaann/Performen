@@ -14,9 +14,7 @@ export default function ThemeSelect() {
             if (
             !event.target.matches('.themeBtn') && 
             !event.target.matches('.dropdown-span') && 
-            !event.target.matches('.themeBtn div') && 
-            !event.target.matches('.themeBtn div span') && 
-            !event.target.matches('.themeBtn div svg')
+            !event.target.matches('.themeBtn *')
             ) {
                 let dropdown = document.getElementById("Themes");
                 if(dropdown.classList.contains("show-element")) {

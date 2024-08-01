@@ -14,7 +14,7 @@ export default function Header() {
                 <Logo fill={currentTheme.complement} stroke={currentTheme.accent}/>
             </span>
             <div className="header-left">
-                <ThemeSelect z/>
+                <ThemeSelect />
                 <div className="profile"></div>
             </div>
         </div>

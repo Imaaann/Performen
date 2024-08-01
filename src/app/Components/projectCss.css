@@ -30,9 +30,10 @@
     align-items: center;
     border-radius: 8px;
     justify-content: space-between;
-    margin-top: 5px;
+    margin-top: 10px;
     padding: 8px 5px;
     font-family: var(--normal-text-font);
+    cursor: pointer;
 }
 
 
@@ -45,6 +46,7 @@
 }
 
 .project-pop-up {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
     display: flex;
     flex-direction: column;
     background-color: var(--primary-colour);
@@ -99,9 +101,10 @@
     font-size: 22px;
     width: 70px;
     text-align: center;
-    padding: 4px;
-    border-radius: 50px;
-    margin-bottom: 5px;
+    padding: 8px;
+    border-radius: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
     user-select: none;
  }
 
