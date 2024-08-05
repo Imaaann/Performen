@@ -4,17 +4,15 @@ import AddPlus from "../SVG/Add";
 import "./projectCss.css";
 import { useTheme } from "./ThemeContext";
 import { useUser } from "./UserContext";
-import { useForm } from "react-hook-form";
 import ProjectLink from "./projectLink";
 
 
-const ProjectSection = () => {
+const ProjectSection = ({update}) => {
 
   // States and hooks
   const [currentTheme,] = useTheme()
   const [popUpState,setPopUpState] = useState(false)
   const [user,setUser] = useUser()
-  const [update,setUpdate] = useState(0)
 
   // Black Cover Element
   const BlackCover = () => {
@@ -31,7 +29,13 @@ const ProjectSection = () => {
       setPopUpState(false)
 
       let userCopy = user
-      userCopy.projectList.push({name: e.target[0].value, description: e.target[1].value, isSelected: false})
+      userCopy.projectList.push({  
+        name: e.target[0].value, 
+        description: e.target[1].value, 
+        isSelected: false, 
+        tabList: []
+      })
+
       setUser(userCopy)
     }
   
@@ -39,7 +43,7 @@ const ProjectSection = () => {
       <form onSubmit={handleSubmit} className="project-pop-up">
         <input
           type='text'
-          name='description'
+          name='Name'
           placeholder='Name'
           aria-label='Name'
         />
@@ -49,7 +53,7 @@ const ProjectSection = () => {
           placeholder='Description'
           aria-label='Description'
         />
-      <button type="submit">Submit</button>
+      <button type="submit">Create</button>
       </form>
     );
   }
@@ -68,6 +72,7 @@ const ProjectSection = () => {
 
   //Render project list
   const projectList = user.projectList
+  
 
   return (
     <div>
@@ -77,7 +82,18 @@ const ProjectSection = () => {
       </div>
       {popUpState ? [<NewProjectPopUp />, <BlackCover />] : []}
       <div>
-        {projectList.map((p,index) => <ProjectLink name={p.name} isSelected={p.isSelected} index={index} update={[update,setUpdate]}/>)}
+        {projectList != null && 
+        projectList.map((p,index) => 
+
+          <ProjectLink 
+          name={p.name} 
+          isSelected={p.isSelected} 
+          description={p.desc} 
+          index={index} 
+          update={update}/>
+
+        )}
+
       </div>
     </div>
   )

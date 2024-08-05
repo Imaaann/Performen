@@ -14,7 +14,16 @@ const UserContext = ({children}) => {
     userName: "",
     UID: "",
     profilePicture: "",
-    projectList: []
+    projectList: [{
+      name: "Welcome to Performen", 
+      description: "Descriptions show on hover", 
+      isSelected: true, 
+      tabList: [
+        {
+          
+        }
+      ]
+    }]
   }
 
   const [User,setUser] = useState(EmptyUser);

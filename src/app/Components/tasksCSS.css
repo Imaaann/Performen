@@ -1,0 +1,131 @@
+.Tab-Header {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: var(--complement-colour);
+    font-family: var(--normal-text-font);
+    color: var(--normal-text-colour);
+    text-align: center;
+    z-index: 0;
+    padding: 10px 0px;
+    width: 250px;
+}
+
+.Tab-container {
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.Tab-Body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    width: 250px;
+    min-height: 300px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: var(--box-shadow-57);
+    background-color: var(--secondary-colour);
+    border-right: 1px solid var(--accent-colour);
+    border-bottom: 1px solid var(--accent-colour);
+    border-left: 1px solid  var(--accent-colour);
+}
+
+.Task-Table-Container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    overflow-y: scroll;
+    pointer-events: none;
+}
+
+.Task-Container {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--complement-colour);
+    color: var(--normal-text-colour);
+    font-family: var(--normal-text-font);
+    box-shadow: var(--box-shadow-57);
+    border-radius: 25px;
+    width: 225px;
+    margin-top: 5px;
+    padding: 5px 5px;
+    height: fit-content; 
+    align-items: center;
+}
+
+.Task-Container span {
+    margin-left: 5px;
+}
+
+.New-Button {
+    cursor: pointer;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid var(--accent-colour);
+    background-color: var(--complement-colour);
+    color: var(--accent-colour);
+    font-size: 35px;
+    font-family: var(--normal-text-font);
+    box-shadow: var(--box-shadow-57);
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    z-index: 2;
+}
+
+.New-Button span {
+    transition: transform 0.3s;
+}
+
+
+.New-Button span:hover {
+    transform: scale(1.25);
+}
+
+.New-Button-Pop-Container {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    border: 1px solid var(--accent-colour);
+    border-radius: 25px;
+    background-color: var(--complement-colour);
+    box-shadow: var(--box-shadow-57);
+    justify-content: space-evenly;
+    padding: 5px;
+    padding-bottom: 20px;
+    height: 100px;
+    width: 100px;
+}
+
+.New-Button-Pop-Container button {
+    text-align: left;
+    border: none;
+    background-color: var(--secondary-colour);
+    border-bottom: 1px solid var(--accent-colour);
+    font-family: var(--normal-text-font);
+    color: var(--normal-text-colour);
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-57);
+    cursor: pointer;
+}
+
+.New-Button-Pop-Container button:hover {
+    background-color: color-mix(in srgb, var(--secondary-colour) 100%, black 25%);
+    color: var(--accent-colour);
+    box-shadow: none;
+}
+

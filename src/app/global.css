@@ -12,5 +12,6 @@
     flex-direction: column;
     height: calc(100vh - 61px);
     background-color: var(--primary-colour);
+    overflow: scroll;
 }
 

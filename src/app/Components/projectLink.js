@@ -1,13 +1,16 @@
 "use client";
+import { useState } from "react";
 import DropArrow from "../SVG/DropArrow"
 import { useTheme } from "./ThemeContext";
 import { useUser } from "./UserContext";
+import { useLongPress } from "use-long-press";
 import "./projectCss.css"
 
-export default function ProjectLink({name, isSelected, index, update}) {
+export default function ProjectLink({name, isSelected, description ,index, update}) {
 
-    const [currentTheme,setCurrentTheme] = useTheme();
+    const [currentTheme,] = useTheme()
     const [user,setUser] = useUser()
+    const [attemptingDelete,setAttemptingDelete] = useState(false)
 
     let strokeColor = currentTheme.complement;
     if (isSelected) {
@@ -16,23 +19,62 @@ export default function ProjectLink({name, isSelected, index, update}) {
 
     //Change to this project
     const selectProject = (e) => {
-        let userCopy = user
-        for (let i=0; i<userCopy.projectList.length; i++) {
-            userCopy.projectList[i].isSelected = false
-        }
+      let userCopy = user
+      for (let i=0; i<userCopy.projectList.length; i++) {
+        userCopy.projectList[i].isSelected = false
+      }
 
+      if (userCopy.projectList[index] != undefined) {
         userCopy.projectList[index].isSelected = true
         setUser(userCopy)
-        update[1](update[0] + 1)
+        //update :D
+        update()
+      }
     }
 
+    //delete behavior
+    const deleteProject = (e) => {
+      let userCopy = user
+      userCopy.projectList.splice(index,1)
+      setUser(userCopy)
+      setAttemptingDelete(false)
+      update()
+    }
+
+    const cancelDeleteProject = (e) => {
+      setAttemptingDelete(false)
+    }
+
+    const showConfirmation = () => {
+      setAttemptingDelete(true)
+    } 
+
+    const bind = useLongPress(showConfirmation,{threshold:700})
+
     return (
-        <div className="link-container" onClick={selectProject}>
-            <span>{name}</span>
-            <div className="select-arrow">
-                <DropArrow stroke={strokeColor}/>
+      <div className="link-container" style={{cursor: `${attemptingDelete ? 'auto' : 'pointer'}`}} onClick={selectProject} {...bind()}>
+        
+        {attemptingDelete ? (
+          <div className="confirmation-container">
+            <div className="confirmation-container-upper">
+              <p className="confirmation-text"> Are you sure u want to delete:</p>
+              <p className="confirmation-text-accent">"{name}"</p>
             </div>
+            <div className="confirmation-container-lower">
+              <div className="confirmation-button"onClick={deleteProject}>YES</div>
+              <div className="confirmation-button"onClick={cancelDeleteProject}>NO</div>
+            </div>
+            
+          </div>
+          ) : (
+          <span>{name}</span>
+        )}
+
+        <div className="select-arrow">
+          <DropArrow stroke={strokeColor}/>
         </div>
+
+      </div>
     )
 
 }

@@ -2456,6 +2456,11 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
+use-long-press@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/use-long-press/-/use-long-press-3.2.0.tgz#87696a782b7059a1eadf93246b1238ba4eb43ae3"
+  integrity sha512-uq5o2qFR1VRjHn8Of7Fl344/AGvgk7C5Mcb4aSb1ZRVp6PkgdXJJLdRrlSTJQVkkQcDuqFbFc3mDX4COg7mRTA==
+
 which-boxed-primitive@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/which-boxed-primitive/-/which-boxed-primitive-1.0.2.tgz#13757bc89b209b049fe5d86430e21cf40a89a8e6"

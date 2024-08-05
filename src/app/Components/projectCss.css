@@ -11,6 +11,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 4px;
+    user-select: none;
 }
 
 .link-container span {
@@ -123,3 +124,57 @@
     z-index: 1;
 }
 
+.confirmation-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.confirmation-container-upper {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.confirmation-container-lower {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.confirmation-text {
+    margin: 0;
+    text-align: center;
+    font-size: 13px;
+    width: 100%;
+}
+
+.confirmation-text-accent {
+    margin: 0;
+    text-align: center;
+    font-size: 13px;
+    width: 100%;
+    color: var(--accent-colour);
+}
+
+.confirmation-button {
+    text-align: center;
+    background-color: var(--secondary-colour);
+    border-color: var(--accent-colour);
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 2px;
+    width: 40px;
+    font-size: 13px;
+    padding: 3px 0px;
+    cursor: pointer;
+}
+
+.confirmation-button:hover {
+    color: var(--accent-colour);
+    background-color: var(--complement-colour);
+}
