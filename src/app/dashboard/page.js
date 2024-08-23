@@ -4,6 +4,7 @@ import ProjectSection from "../Components/ProjectSection"
 import TaskTable from "../Components/TaskTable"
 import { useState } from "react"
 import "./dashboard.css"
+import NewButton from "../Components/NewButton";
 
 export default function Home() {
 
@@ -20,7 +21,7 @@ export default function Home() {
       <div className="main-body">
         <div className="task-section">
           <TaskTable update={update}/>
-        </div>  
+        </div>
         <div className="projects-section" id="projectList">
           <ProjectSection update={update}/>
         </div>

@@ -4,6 +4,7 @@ import DropArrow from "../SVG/DropArrow"
 import { useTheme } from "./ThemeContext";
 import { useUser } from "./UserContext";
 import { useLongPress } from "use-long-press";
+import { motion } from "framer-motion";
 import "./projectCss.css"
 
 export default function ProjectLink({name, isSelected, description ,index, update}) {
@@ -52,20 +53,55 @@ export default function ProjectLink({name, isSelected, description ,index, updat
     const bind = useLongPress(showConfirmation,{threshold:700})
 
     return (
-      <div className="link-container" style={{cursor: `${attemptingDelete ? 'auto' : 'pointer'}`}} onClick={selectProject} {...bind()}>
+      <motion.div 
+        className="link-container"   
+        style={{cursor: `${attemptingDelete ? 'auto' : 'pointer'}`}} 
+        onClick={selectProject} 
+        {...bind()}
+        animate={attemptingDelete ? "open":"close"}
+        variants={{
+          open: {
+            height: "84px",
+          },
+          close: {
+          }
+        }}
+
+        transition={{
+          type: "spring",
+          duration: 1.1,
+        }}
+
+
+      >
         
         {attemptingDelete ? (
-          <div className="confirmation-container">
-            <div className="confirmation-container-upper">
-              <p className="confirmation-text"> Are you sure u want to delete:</p>
-              <p className="confirmation-text-accent">"{name}"</p>
-            </div>
-            <div className="confirmation-container-lower">
-              <div className="confirmation-button"onClick={deleteProject}>YES</div>
-              <div className="confirmation-button"onClick={cancelDeleteProject}>NO</div>
-            </div>
-            
-          </div>
+            <motion.div 
+              className="confirmation-container"
+              animate={{
+                opacity: 1,
+                scale: 1,
+              }}
+              initial={{
+                opacity: 0,
+                scale: 0.7,
+              }}
+              transition={{
+                delay: 0.2,
+                duration: 0.2,
+              }}
+              
+            >
+              <div className="confirmation-container-upper">
+                <p className="confirmation-text"> Are you sure u want to delete:</p>
+                <p className="confirmation-text-accent">"{name}"</p>
+              </div>
+              <div className="confirmation-container-lower">
+                <div className="confirmation-button"onClick={deleteProject}>YES</div>
+                <div className="confirmation-button"onClick={cancelDeleteProject}>NO</div>
+              </div>
+              
+            </motion.div>
           ) : (
           <span>{name}</span>
         )}
@@ -74,7 +110,7 @@ export default function ProjectLink({name, isSelected, description ,index, updat
           <DropArrow stroke={strokeColor}/>
         </div>
 
-      </div>
+      </motion.div>
     )
 
 }

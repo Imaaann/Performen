@@ -11,6 +11,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 4px;
+    height: 28px;
     user-select: none;
 }
 
@@ -58,7 +59,7 @@
     border-radius: 15px;
     align-items: center;
     width: 50vw;
-    z-index: 2;
+    z-index: 20;
 
 
     position: absolute;

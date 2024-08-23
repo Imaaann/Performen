@@ -2,46 +2,33 @@
 import TaskTab from "./TaskTab"
 import { useUser } from "./UserContext"
 import NewButton from "./NewButton"
-import NewButtonPop from "../Components/NewButtonPop";
+
 
 
 const TaskTable = ({update}) => {
 
-  const [user,setUser] = useUser()
+  const [user,] = useUser()
 
   //Step 1: get currently selected project
-  let activeProject = null;
+  let activeProjectIndex = null;
 
   if (user.projectList != null) {
     for (let i=0; i<user.projectList.length; i++) {
       if (user.projectList[i].isSelected) {
-        activeProject = user.projectList[i]
-        break
+        activeProjectIndex = i
+        break;
       }
     }
   }
 
-  let TabItems = []
-  if (activeProject != null) {
-    TabItems =  activeProject.tabList.map(
-      (tab,index) => {
-        <TaskTab 
-        name={tab.name}
-        TaskArray={tab.TaskArray}
-        key={index}
-        />
-    })
-  }
-
-
-
+  console.log(user.projectList[activeProjectIndex].tabList)
   return (
     <div className="Task-Table-Container">
+      {user.projectList[activeProjectIndex].tabList.map((t,index) => 
+        <TaskTab name={t.name} TaskArray={t.taskArray} key={index} />
+      )}
       <div style={{pointerEvents: "auto"}}>
-        {TabItems}
-      </div>
-      <div style={{pointerEvents: "auto"}}>
-        <NewButton />
+        <NewButton update={update}/>
       </div>
     </div>
   )

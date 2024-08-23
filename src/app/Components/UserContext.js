@@ -15,14 +15,9 @@ const UserContext = ({children}) => {
     UID: "",
     profilePicture: "",
     projectList: [{
-      name: "Welcome to Performen", 
-      description: "Descriptions show on hover", 
+      name: "Hold to Delete a project", 
       isSelected: true, 
-      tabList: [
-        {
-          
-        }
-      ]
+      tabList: []
     }]
   }
 

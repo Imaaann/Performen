@@ -6,6 +6,14 @@ import { useTheme } from "./ThemeContext";
 import { useUser } from "./UserContext";
 import ProjectLink from "./projectLink";
 
+// Black Cover Element
+export const BlackCover = ({onClick}) => {
+  return (
+    <div className="blackout" onClick={onClick}>
+    </div>
+  )
+}
+
 
 const ProjectSection = ({update}) => {
 
@@ -14,13 +22,7 @@ const ProjectSection = ({update}) => {
   const [popUpState,setPopUpState] = useState(false)
   const [user,setUser] = useUser()
 
-  // Black Cover Element
-  const BlackCover = () => {
-    return (
-      <div className="blackout">
-      </div>
-    )
-  }
+
  
   // Popup Element
   const NewProjectPopUp = () => {
@@ -30,8 +32,7 @@ const ProjectSection = ({update}) => {
 
       let userCopy = user
       userCopy.projectList.push({  
-        name: e.target[0].value, 
-        description: e.target[1].value, 
+        name: e.target[0].value,
         isSelected: false, 
         tabList: []
       })
@@ -47,12 +48,6 @@ const ProjectSection = ({update}) => {
           placeholder='Name'
           aria-label='Name'
         />
-        <input
-          type='text'
-          name='description'
-          placeholder='Description'
-          aria-label='Description'
-        />
       <button type="submit">Create</button>
       </form>
     );
@@ -61,13 +56,10 @@ const ProjectSection = ({update}) => {
   // Popup Event
   const showNewProjectPopUp = (e) => {
     setPopUpState(true)
-    if (typeof window !== "undefined") {
-      window.onclick = (e) => {
-        if (e.target.matches(".blackout")) {
-          setPopUpState(false);
-        }
-      }
-    }
+  }
+
+  const onBackDropClick = (e) => {
+    setPopUpState(false)
   }
 
   //Render project list
@@ -80,7 +72,7 @@ const ProjectSection = ({update}) => {
         <span>New Project</span>
         <AddPlus stroke={currentTheme.accent}/>
       </div>
-      {popUpState ? [<NewProjectPopUp />, <BlackCover />] : []}
+      {popUpState ? [<NewProjectPopUp />, <BlackCover  onClick={onBackDropClick}/>] : []}
       <div>
         {projectList != null && 
         projectList.map((p,index) => 
@@ -88,7 +80,6 @@ const ProjectSection = ({update}) => {
           <ProjectLink 
           name={p.name} 
           isSelected={p.isSelected} 
-          description={p.desc} 
           index={index} 
           update={update}/>
 
