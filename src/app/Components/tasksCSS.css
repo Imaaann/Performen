@@ -201,3 +201,57 @@
     left: 105px;
     pointer-events: none;
 }
+
+.deletion-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.deletion-container-upper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.deletion-container-lower {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.deletion-text {
+    margin: 0;
+    text-align: center;
+    font-size: 10px;
+    width: 100%;
+}
+
+.deletion-text-accent {
+    margin: 0;
+    text-align: center;
+    font-size: 10px;
+    width: 100%;
+    color: var(--accent-colour);
+}
+
+.deletion-button {
+    text-align: center;
+    background-color: var(--secondary-colour);
+    border-color: var(--accent-colour);
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 2px;
+    width: 40px;
+    font-size: 10px;
+    padding: 3px 0px;
+    cursor: pointer;
+}
+
+.deletion-button:hover {
+    color: var(--accent-colour);
+    background-color: var(--complement-colour);
+}
