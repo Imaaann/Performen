@@ -178,5 +178,26 @@
 
 .New-Tab-Pop-Header {
     font-size: 28;
-    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+
+}
+
+.New-Task-Select {
+    border: none;
+    border: 0.5px solid var(--accent-colour);
+    border-radius: 12px;
+    min-width: 75px;
+    margin-bottom: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: var(--complement-colour);
+    color: var(--normal-text-colour);
+}
+
+.New-Task-Arrow {
+    z-index: 3;
+    position: absolute;
+    top: 140px;
+    left: 105px;
+    pointer-events: none;
 }

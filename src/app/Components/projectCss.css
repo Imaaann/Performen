@@ -179,3 +179,55 @@
     color: var(--accent-colour);
     background-color: var(--complement-colour);
 }
+
+.Pop-Container {
+    background-color: var(--primary-colour);
+    border: 1px solid var(--accent-colour);
+    padding: 8px;
+    z-index: 3;
+    font-family: var(--normal-text-font);
+    color: var(--normal-text-colour);
+    border-radius: 15px;
+
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.Pop-Container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Pop-Input {
+    border: none;
+    border-bottom: 0.5px solid var(--accent-colour);
+    background-color: var(--secondary-colour);
+    color: var(--normal-text-colour);
+    font-family: var(--normal-text-font);
+    outline: none;
+    margin-bottom: 5px;
+    border-radius: 3px;
+}
+
+.Pop-Button {
+    border: none;
+    background-color: var(--complement-colour);
+    color: var(--accent-colour);
+    border-radius: 60px;
+    padding: 0px 20px;
+    font-size: large;
+    cursor: pointer;
+}
+
+.Pop-Button:hover {
+    background-color: color-mix(in srgb, var(--secondary-colour) 100%, black 25%);
+}
+
+.Pop-Header {
+    font-size: 28;
+
+}

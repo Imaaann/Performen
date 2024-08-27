@@ -7,7 +7,7 @@ import { useLongPress } from "use-long-press";
 import { motion } from "framer-motion";
 import "./projectCss.css"
 
-export default function ProjectLink({name, isSelected, description ,index, update}) {
+export default function ProjectLink({name, isSelected, index, update}) {
 
     const [currentTheme,] = useTheme()
     const [user,setUser] = useUser()

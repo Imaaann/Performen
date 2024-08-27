@@ -1,18 +1,30 @@
 "use client";
 import TaskElipse from "../SVG/TaskElipse";
 import { useTheme } from "./ThemeContext"
+import { findActiveProject } from "./NewButton";
 import "./tasksCSS.css"
+import { useUser } from "./UserContext";
 
-const Task = ({name,description,isCompleted,updateTab,key}) => {
+const Task = ({name,isCompleted,update,index,tabIndex}) => {
   
   const [currentTheme,] = useTheme()
+  const [user,setUser] = useUser()
+  const activeIndex = findActiveProject(user)
 
   const strokeColor = isCompleted ? currentTheme.accent : currentTheme.secondary
   
+  const completeTask = (e) => {
+    let userCopy = user
+    let task = userCopy.projectList[activeIndex].tabList[tabIndex].taskArray[index]
+    task.isCompleted = !task.isCompleted
+    setUser(userCopy)
+    update()
+  }
+
   return (
-    <div title={description} className="Task-Container">
+    <div className="Task-Container">
       <span>{name}</span>
-      <div>
+      <div onClick={completeTask} style={{cursor: "pointer"}}>
         <TaskElipse stroke={strokeColor} fill={currentTheme.primary} />
       </div>
     </div>

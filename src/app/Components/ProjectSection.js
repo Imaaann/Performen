@@ -41,15 +41,19 @@ const ProjectSection = ({update}) => {
     }
   
     return (
-      <form onSubmit={handleSubmit} className="project-pop-up">
-        <input
-          type='text'
-          name='Name'
-          placeholder='Name'
-          aria-label='Name'
-        />
-      <button type="submit">Create</button>
-      </form>
+      <div className="Pop-Container">
+        <form onSubmit={handleSubmit} >
+          <h1 className="Pop-Header">New Project</h1>
+          <input
+            type='text'
+            name='Name'
+            placeholder='Name'
+            aria-label='Name'
+            className="Pop-Input"
+          />
+        <button type="submit" className="Pop-Button">Create</button>
+        </form>
+      </div>
     );
   }
 

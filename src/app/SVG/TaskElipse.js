@@ -14,7 +14,7 @@ const TaskElipse = ({stroke, fill}) => (
       stroke={stroke}
       strokeLinecap="round"
       strokeLinejoin="round"
-      strokeWidth={0.5}
+      strokeWidth={1.5}
       d="m7 19 5.846 8L26 9"
     />
   </svg>
