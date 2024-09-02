@@ -8,6 +8,7 @@
     height: 60px;
     background-color: var(--complement-colour);
     border-top: 1px solid var(--accent-colour);
+    z-index: 1;
 }
 
 .Links {

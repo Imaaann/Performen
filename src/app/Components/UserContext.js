@@ -11,8 +11,8 @@ export function useUser() {
 const UserContext = ({children}) => {
 
   const EmptyUser = {
-    userName: "",
-    UID: "",
+    userName: "John Doe",
+    UID: "XXXXX-XXXXX-XXXXX-XXXXX",
     profilePicture: "",
     projectList: [{
       name: "Hold to Delete a project", 

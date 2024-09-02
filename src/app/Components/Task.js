@@ -5,7 +5,7 @@ import { findActiveProject } from "./NewButton";
 import "./tasksCSS.css"
 import { useUser } from "./UserContext";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { delay, motion } from "framer-motion";
 import { useLongPress } from "use-long-press";
 
 const Task = ({name,isCompleted,update,index,tabIndex}) => {
@@ -70,33 +70,55 @@ const Task = ({name,isCompleted,update,index,tabIndex}) => {
     update()
   }
 
+  const taskVariants = {
+    show: {
+      scale: 1,
+      opacity: 1,
+    },
+    hidden: {
+      scale: 0.6,
+      opacity: 0,
+    }
+  }
+
   return (
-    <motion.div 
-      className="Task-Container"
-      {...bindFunc()}
-
-      animate={deleteState ? "open":"close"}
-      variants={{
-        open: {
-          padding: "15px 0px",
-        },
-        close: {
-        }
-      }}
-
+    <motion.div
+      variants={taskVariants}
+      animate="show"
+      initial="hidden"
       transition={{
         type: "spring",
-        duration: 0.6,
+        duration: 0.3,
+        delay: (index*0.2),
       }}
     >
-      {deleteState ? (<ConfirmDelete />) : (
-        <>
-          <span>{name}</span>
-          <div onClick={completeTask} style={{cursor: "pointer"}}>
-            <TaskElipse stroke={strokeColor} fill={currentTheme.primary} />
-          </div>
-        </>
-      )}
+      <motion.div 
+        className="Task-Container"
+        {...bindFunc()}
+
+        animate={deleteState ? "open":"close"}
+        variants={{
+          open: {
+            padding: "15px 0px",
+          },
+          close: {
+          }
+        }}
+
+        transition={{
+          type: "spring",
+          duration: 0.6,
+        }}
+      >
+        {deleteState ? (<ConfirmDelete />) : (
+          <>
+            <span>{name}</span>
+            <div onClick={completeTask} style={{cursor: "pointer"}}>
+              <TaskElipse stroke={strokeColor} fill={currentTheme.primary} />
+            </div>
+          </>
+        )}
+      </motion.div>
     </motion.div>
   )
 }

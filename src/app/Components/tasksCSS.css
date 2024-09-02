@@ -13,6 +13,9 @@
 .Tab-container {
     margin-top: 5px;
     margin-left: 15px;
+    pointer-events: auto;
+    height: fit-content;
+    z-index: 0;
 }
 
 .Tab-Body {

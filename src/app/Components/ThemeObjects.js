@@ -1,4 +1,5 @@
 const defaultTheme = {
+    name: "Default",
     primary:"#525252",
     secondary:"#414141",
     complement:"#313131",
@@ -8,6 +9,7 @@ const defaultTheme = {
 }
 
 const gumTheme = {
+    name: "Gum",
     primary: "#7776B3",
     secondary: "#9B86BD",
     complement: "#5A639C",
@@ -17,6 +19,7 @@ const gumTheme = {
 }
 
 const goldTheme = {
+    name: "Gold",
     primary: "#242424",
     secondary: "#131313",
     complement: "#101010",

@@ -11,7 +11,7 @@ const TaskTable = ({update}) => {
 
 
   return (
-    <div className="Task-Table-Container" style={{pointerEvents: "auto"}}>
+    <div className="Task-Table-Container" style={{pointerEvents: "none"}}>
       {(activeIndex != null) && (user.projectList[activeIndex].tabList.map((t,index) => {
         return (<TaskTab name={t.name} TaskArray={t.taskArray} index={index} update={update}/>)
       }))}

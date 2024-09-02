@@ -58,9 +58,29 @@ const TaskTab = ({name, TaskArray, update, index}) => {
     )
   }
   
+  const containerVariants = {
+    hidden: {
+      scale: 0.85,
+      opacity: 0.8,
+    },
+    show: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        duration: 0.3,
+      }
+    }
+  }
+
 
   return (
-    <div className="Tab-container">
+    <motion.div 
+      className="Tab-container"
+      variants={containerVariants}
+      animate="show"
+      initial="hidden"
+    >
       <motion.div 
         className="Tab-Header"
         {...bindFunc()}
@@ -93,7 +113,7 @@ const TaskTab = ({name, TaskArray, update, index}) => {
             />)
         })}
       </div>
-    </div>
+    </motion.div>
   )
 }
 

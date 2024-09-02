@@ -3,10 +3,17 @@ import "./Header.css";
 import Logo from "../SVG/Logo";
 import ThemeSelect from "./ThemesSelect";
 import { useTheme } from "./ThemeContext";
+import UserPop from "./UserPop";
+import { useState } from "react";
 
-export default function Header() {
+export default function Header({completion}) {
     
-    const [currentTheme,setCurrentTheme] = useTheme();
+    const [currentTheme,] = useTheme();
+    const [userPopState,setUserPopState] = useState(false);
+
+    const profileOnClick = (e) => {
+        setUserPopState(!userPopState)
+    }
 
     return (
         <div className="Header">
@@ -15,7 +22,10 @@ export default function Header() {
             </span>
             <div className="header-left">
                 <ThemeSelect />
-                <div className="profile"></div>
+                <div style={{position: "relative"}}>
+                    <div className="profile" onClick={profileOnClick} ></div>
+                    {userPopState && <UserPop completion={completion}/>}
+                </div>
             </div>
         </div>
     )

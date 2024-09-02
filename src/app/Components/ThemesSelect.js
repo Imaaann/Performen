@@ -4,29 +4,18 @@ import Palette from "../SVG/Palette";
 import DropArrow from "../SVG/DropArrow";
 import { useTheme } from "./ThemeContext";
 import ThemeObjects from "./ThemeObjects";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import ThemeBubbles from "../SVG/ThemeBubbles";
 
 export default function ThemeSelect() {
 
+    const [dropDownState, setDropDownState] = useState(false)
 
-    // drop down behavior
-    if (typeof window !== "undefined") {
-        window.onclick = function(event) {
-            if (
-            !event.target.matches('.themeBtn') && 
-            !event.target.matches('.dropdown-span') && 
-            !event.target.matches('.themeBtn *')
-            ) {
-                let dropdown = document.getElementById("Themes");
-                if(dropdown.classList.contains("show-element")) {
-                    dropdown.classList.remove("show-element");
-                }
-            }
-        }  
+    const themeSelectionClick = (e) => {
+        setDropDownState(!dropDownState)
     }
 
-    const showList = () => {
-        document.getElementById("Themes").classList.toggle("show-element");
-    }
 
     // Theme selection behavior
 
@@ -44,25 +33,50 @@ export default function ThemeSelect() {
         setCurrentTheme(ThemeObjects[2]);
     }
 
+    const settingFunctions = [setDefTheme,setGumTheme,setGoldTheme]
 
     
     return (
-        <div className="dropdown">
-            <button className="themeBtn" onClick={showList}>
-                <div className="themes-container"> 
-                    <div className="palette">
-                        <Palette stroke={currentTheme.accent}/>
-                    </div>
-                    <span>Themes</span>
-                    <DropArrow stroke={currentTheme.accent} />
-                </div>
-            </button>
-            <div id="Themes" className="dropdown-content">
-                <span className="dropdown-span" onClick={setDefTheme}>Default</span>
-                <span className="dropdown-span" onClick={setGumTheme}>GumGum</span>
-                <span className="dropdown-span" onClick={setGoldTheme}>Gold</span>
+      <div className="dropdown">
+        <button className="themeBtn" onClick={themeSelectionClick}>
+          <div className="themes-container"> 
+            <div className="palette">
+              <Palette stroke={currentTheme.accent}/>
             </div>
-        </div>
+            <span>Themes</span>
+            <DropArrow stroke={currentTheme.accent} />
+          </div>
+        </button>
+        <motion.div
+          animate={dropDownState ? "open":"closed"}
+          variants={{
+            open: {
+              opacity: 1, 
+              scaleY: 1
+            },
+        
+            closed: {
+              opacity: 0, 
+              scaleY: 0.3
+            }
+          }}
+          transition={{
+            type: "linear",
+            duration: 0.3,
+          }}
+        >
+          <div className="dropdown-container">
+            {dropDownState && ThemeObjects.map((o,index) => {
+                return (
+                <div className="dropdown-content" onClick={settingFunctions[index]}>
+                  <ThemeBubbles primary={o.primary} secondary={o.secondary} complement={o.complement} accent={o.accent}/>
+                  <span>{` |${index+1}| ` + o.name}</span>
+                </div>
+              )
+            })}
+          </div>
+        </motion.div>
+      </div>
     )
 }
 
