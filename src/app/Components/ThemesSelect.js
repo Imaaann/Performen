@@ -35,6 +35,18 @@ export default function ThemeSelect() {
 
     const settingFunctions = [setDefTheme,setGumTheme,setGoldTheme]
 
+    const ThemeDropDown = () => (
+      <div className="dropdown-container">
+        {
+          ThemeObjects.map((o,index) => (
+            <div className="dropdown-content" onClick={settingFunctions[index]}>
+              <ThemeBubbles primary={o.primary} secondary={o.secondary} complement={o.complement} accent={o.accent}/>
+              <span>{` |${index+1}| ` + o.name}</span>
+            </div>
+          ))
+        }
+      </div>
+    )
     
     return (
       <div className="dropdown">
@@ -65,16 +77,7 @@ export default function ThemeSelect() {
             duration: 0.3,
           }}
         >
-          <div className="dropdown-container">
-            {dropDownState && ThemeObjects.map((o,index) => {
-                return (
-                <div className="dropdown-content" onClick={settingFunctions[index]}>
-                  <ThemeBubbles primary={o.primary} secondary={o.secondary} complement={o.complement} accent={o.accent}/>
-                  <span>{` |${index+1}| ` + o.name}</span>
-                </div>
-              )
-            })}
-          </div>
+          {dropDownState && <ThemeDropDown />}
         </motion.div>
       </div>
     )

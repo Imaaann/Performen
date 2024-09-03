@@ -24,7 +24,7 @@
 }
 
 .dropdown-container {
-    position: relative;
+    position: absolute;
     background-color: var(--secondary-colour);
     border: 0.5px solid var(--accent-colour);
     border-bottom-left-radius: 15px;
@@ -43,6 +43,7 @@
     font-family: var(--normal-text-font);
     z-index: 2;
     user-select: none;
+    min-width: 218px;
  }
 
  .dropdown-content span {

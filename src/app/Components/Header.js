@@ -5,6 +5,7 @@ import ThemeSelect from "./ThemesSelect";
 import { useTheme } from "./ThemeContext";
 import UserPop from "./UserPop";
 import { useState } from "react";
+import ProgressBar from "./ProgressBar";
 
 export default function Header({completion}) {
     
@@ -20,6 +21,7 @@ export default function Header({completion}) {
             <span className="logo">
                 <Logo fill={currentTheme.complement} stroke={currentTheme.accent}/>
             </span>
+            <ProgressBar completion={completion} />
             <div className="header-left">
                 <ThemeSelect />
                 <div style={{position: "relative"}}>

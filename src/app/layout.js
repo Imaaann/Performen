@@ -3,6 +3,11 @@ import Footer from "./Components/Footer";
 import ThemeProvider from "./Components/ThemeContext";
 import UserContext from "./Components/UserContext";
 
+
+export const metadata = {
+  title: 'Performen',
+}
+
 export default function RootLayout({ children }) {
 
 
