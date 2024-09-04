@@ -1,0 +1,77 @@
+.page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+
+    background-color: var(--secondary-colour);
+    border-radius: 15px;
+    padding: 20px 10px;
+    border: 1px solid var(--accent-colour);
+    box-shadow: var(--box-shadow-57);
+
+    font-family: var(--normal-text-font);
+    color: var(--normal-text-colour);
+    font-size: 16px;
+
+}
+
+.login-input {
+    background-color: var(--complement-colour);
+    border: none;
+    border-bottom: 0.5px solid var(--accent-colour);
+    border-radius: 5px;
+    min-width: 250px;
+    min-height: 30px;
+    margin-bottom: 10px;
+    color: var(--normal-text-colour);
+    outline: none;
+}
+
+.login-button {
+    background-color: var(--complement-colour);
+    border: none;
+    border: 1px solid var(--accent-colour);
+    color: var(--accent-colour);
+    font-family: var(--normal-text-colour);
+    box-shadow: var(--box-shadow-57);
+    border-radius: 10px;
+    padding: 10px 0px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: color-mix(in srgb, var(--primary-colour) 100%, black 25%);
+}
+
+.file-button  {
+    background-color: var(--complement-colour);
+    border: none;
+    border: 1px solid var(--accent-colour);
+    color: var(--normal-text-colour);
+    font-family: var(--normal-text-colour);
+    box-shadow: var(--box-shadow-57);
+    border-radius: 10px;
+    padding: 20px 0px;
+    font-size: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+input[type="file"] {
+    display: none;
+}
